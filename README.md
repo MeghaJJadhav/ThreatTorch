@@ -1,4 +1,4 @@
-ThreatTorch: Intrusion Detection WebApp
+ThreatTorch
 
 ThreatTorch is an Intrusion Detection System (IDS) project developed during my third year of college.
 The project demonstrates how machine learning can be applied to detect malicious network activity in large-scale datasets.
@@ -7,7 +7,7 @@ The work includes:
 
 Performing Exploratory Data Analysis (EDA) to understand traffic behavior.
 
-Training and evaluating multiple machine learning models.
+Training and evaluating machine learning models.
 
 Saving the trained models as .pkl files for reuse.
 
@@ -16,17 +16,11 @@ Saving the trained models as .pkl files for reuse.
 
 Motivation
 
-With the increasing frequency and sophistication of cyberattacks, traditional security methods are not always enough. Intrusion Detection Systems (IDS) help detect and prevent malicious activities.
-
-The motivation behind ThreatTorch was to:
-
-Learn how data science and ML techniques can be used for cybersecurity.
-
-Perform realistic analysis of IDS datasets.
-
-Compare multiple classification models to identify the most effective one.
-
-Build a working prototype of an IDS webapp for demonstration purposes.
+With the increasing frequency and sophistication of cyberattacks, traditional security methods are not always enough. Intrusion Detection Systems (IDS) help detect and prevent malicious activities.The motivation behind ThreatTorch was to:
+1) Learn how data science and ML techniques can be used for cybersecurity.
+2) Perform realistic analysis of IDS datasets.
+3) Compare multiple classification models to identify the most effective one.
+4) Build a working prototype of an IDS webapp for demonstration purposes.
 
 Tech Stack
 
@@ -40,20 +34,22 @@ Pickle: For storing and reusing trained models.
 
 Frontend (WebApp):
 
-HTML, CSS, JavaScript (for the GUI).
+HTML, CSS, JavaScript (for the GUI) and flask for data handling.
 
-Project Workflow
+Project key highlights
 1) Dataset & Preprocessing
 
-Loaded the IDS dataset into a pandas DataFrame.
+Loaded the IDS dataset into a DataFrame.
 
 Cleaned missing or inconsistent values.
 
 Applied feature encoding and scaling where required.
 
-Handled class imbalance (more benign traffic vs. fewer attacks).
+Identified class imbalance (more benign traffic vs. fewer attacks).
 
-2️) Exploratory Data Analysis (EDA)
+using 'ipaddress' library broke down the variables containing ip addresses into manageable and low cardinality columns.
+
+2) Exploratory Data Analysis (EDA)
 
 EDA was a crucial step in understanding network traffic patterns:
 
@@ -71,26 +67,21 @@ Traffic size distributions: Studied IN_BYTES and OUT_BYTES with histograms and l
 
 This step provided insights that guided feature engineering and model selection.
 
-3️) Modeling
+3) Modeling
 
-Multiple machine learning models were trained and compared:
+Following machine learning models were trained and compared:
 
-Logistic Regression: As a baseline classifier.
+a) Random Forest: For ensemble-based classification.
 
-Random Forest: For ensemble-based classification.
+b) XGBoost: For high-performance gradient boosting.
 
-XGBoost: For high-performance gradient boosting.
+c) Experimented balanced classifiers for xgboost.
 
-Other models: Experimented with additional classifiers for comparison.
-
-Evaluation metrics:
+Evaluation metrics used:
 
 Accuracy
-
 Precision
-
 Recall
-
 F1-score
 
 The results helped identify which models performed best on intrusion detection tasks.
@@ -98,11 +89,11 @@ The results helped identify which models performed best on intrusion detection t
 -Models were saved as .pkl files for reuse.
 -Some large .pkl files are excluded from GitHub due to the 100 MB file size limit.
 
-4️)WebApp Integration
+4)WebApp Integration
 
 Built a basic webapp GUI with HTML, CSS, and JavaScript.
 
-Connected the trained ML model backend (via .pkl) to allow predictions on user inputs.
+Connected the trained ML model backend (via .pkl) to allow predictions on user inputs also handled data for label encoding categorical and scaling numerical variables respectively.
 
 The GUI simulates a user entering traffic features and receiving an “Attack” or “Benign” prediction.
 
