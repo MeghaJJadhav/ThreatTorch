@@ -97,4 +97,4 @@ Connected the trained ML model backend (via .pkl) to allow predictions on user i
 
 The GUI simulates a user entering traffic features and receiving an “Attack” or “Benign” prediction.
 
-Current limitation: UI is static and not fully responsive (best viewed on desktop).
+Current limitation: UI is static and not fully responsive if you want a demo reach out to me on meghajjadhav17@gmail.com.
